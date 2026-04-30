@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>畢業快樂！</title>
+    <title>for LPC</title>
     <style>
-        /* 莫蘭迪灰藍色系配色 */
         body {
             font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             display: flex;
@@ -14,7 +13,7 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #93a2ad; /* 莫蘭迪藍灰色 */
+            background-color: #93a2ad; 
             color: #4a4e52;
             text-align: center;
         }
@@ -30,7 +29,7 @@
         }
 
         h1 {
-            color: #6d8299; /* 莫蘭迪深藍 */
+            color: #6d8299; 
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
         }
@@ -64,7 +63,7 @@
 
         button {
             padding: 12px 24px;
-            background-color: #8da4b4; /* 莫蘭迪綠藍 */
+            background-color: #8da4b4; 
             color: white;
             border: none;
             border-radius: 8px;
@@ -79,7 +78,6 @@
             background-color: #768d9f;
         }
 
-        /* 隱藏內容的樣式 */
         #hidden-message {
             display: none;
             text-align: left;
@@ -115,7 +113,6 @@
         <button onclick="checkStatus()">解鎖祝福</button>
     </div>
 
-    <!-- 成功後的內容 -->
     <div id="hidden-message">
         <h2 style="color:#6d8299; text-align:center;">恭喜ผ(•̀_•́ผ)</h2>
         <p>能看到這些話，你也蠻有毅力的w</p>
@@ -135,8 +132,6 @@
 
 <script>
     function checkStatus() {
-        // 解鎖時間：2026/07/12 17:30:00
-        // JS 月份從 0 開始，所以 7 月是 6
         const unlockDate = new Date(2026, 4, 1, 00, 00, 0);
         const now = new Date();
         const correctPassword = "0731";
@@ -146,22 +141,18 @@
         const isPasswordCorrect = inputPassword === correctPassword;
 
         if (!isTimeUp && !isPasswordCorrect) {
-            // 1. 時間未到 + 輸入錯誤
             alert("密碼錯誤而且時機未到喔：D");
         } 
         else if (!isTimeUp && isPasswordCorrect) {
-            // 2. 時間未到 + 輸入正確
             alert("不愧是你，猜得好準，但天機目前還不能洩漏 );");
         } 
         else if (isTimeUp && !isPasswordCorrect) {
-            // 3. 時間到 + 輸入錯誤
             alert("加油加油~ >.<");
         } 
         else if (isTimeUp && isPasswordCorrect) {
-            // 4. 時間到 + 輸入正確
             document.getElementById('auth-ui').style.display = 'none';
             document.getElementById('hidden-message').style.display = 'block';
-            document.getElementById('main-box').style.width = '500px'; // 展開一點寬度方便閱讀
+            document.getElementById('main-box').style.width = '500px';
         }
     }
 </script>
