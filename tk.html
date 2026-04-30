@@ -7,46 +7,71 @@
     <style>
         /* CSS：美化網頁介面 */
         body {
-            font-family: 'PingFang TC', sans-serif;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* 灰藍色背景 */
+            /* 使用溫暖平和的漸層色 */
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
             color: #333;
             text-align: center;
         }
         .container {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 80%;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            max-width: 85%;
+            width: 400px;
+        }
+        h1 {
+            color: #4a90e2;
+            margin-bottom: 1rem;
+        }
+        p {
+            line-height: 1.6;
+            color: #666;
         }
         input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-top: 10px;
-            width: 80%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 20px;
+            width: 100%;
+            box-sizing: border-box; /* 確保寬度包含 padding */
+            text-align: center;
+            font-size: 16px;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #5d9cec;
             color: white;
             border: none;
-            border-radius: 5px;
-            margin-top: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
             cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
+        button:hover {
+            background-color: #4a89dc;
+        }
+        /* 隱藏的心語區域 */
         #hidden-message {
-            display: none; /* 預設隱藏想說的話 */
-            margin-top: 20px;
-            line-height: 1.6;
-            color: #2c3e50;
-            font-weight: bold;
+            display: none; 
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed #ddd;
+            text-align: left; /* 心語用左對齊比較好閱讀 */
+        }
+        .heart-icon {
+            color: #e74c3c;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -54,33 +79,33 @@
 
 <div class="container">
     <h1 id="title">分科加油！</h1>
-    <p id="status-text">現在是衝刺期，專心準備考試，這份祝福會陪著你。</p>
+    <p id="status-text">這是一個為你準備的數位時光膠囊。<br>現在請先專心應考，祝福一直都在。</p>
 
     <!-- 密碼輸入區域 -->
     <div id="auth-section">
-        <input type="password" id="password" placeholder="輸入密碼解鎖真心話">
+        <input type="password" id="password" placeholder="請輸入解鎖密碼">
         <br>
         <button onclick="checkStatus()">解鎖祝福</button>
     </div>
 
     <!-- 隱藏的心語區域 -->
     <div id="hidden-message">
-        <p>（這是在 7/13 分科考完後才會出現的內容）</p>
-        <p>辛苦了！雖然我們不常聊天，但我一直很佩服你的努力...</p>
-        <p>祝你上理想的大學，開啟精彩的下一章！</p>
+        <div style="text-align: center;"><span class="heart-icon">❤</span></div>
+        <p>辛苦了！在你看到這段文字的時候，分科測驗應該已經順利結束了吧。</p>
+        <p>雖然我們在學校不常聊天，但我一直很佩服你為了目標而努力的樣子。這份禮物是在畢業那天送出的，而這段話是想在今天正式祝賀你完成了這場挑戰。</p>
+        <p>不論結果如何，我都相信你的優秀會帶你去理想的地方。祝你在大學開啟非常精彩的新篇章！加油！</p>
     </div>
 </div>
 
 <script>
-    // JavaScript：控制邏輯
     function checkStatus() {
-        // 1. 設定解鎖日期 (格式：年, 月(從0開始), 日, 時, 分)
-        // 注意：JavaScript 的月份是從 0 開始，所以 7 月要寫 6
+        // 1. 設定解鎖日期 (2026年7月13日 18:00)
+        // JS 月份從 0 開始，所以 7 月要填 6
         const unlockDate = new Date(2026, 6, 13, 18, 0, 0); 
-        const now = new Date(); // 獲取現在時間
+        const now = new Date(); 
         
-        // 2. 設定你想要的密碼
-        const correctPassword = "0713"; // 你可以改成他的學號、生日或你們約定的密碼
+        // 2. 密碼已設定為 0731
+        const correctPassword = "0731"; 
         
         const inputPassword = document.getElementById('password').value;
         const messageDiv = document.getElementById('hidden-message');
@@ -90,18 +115,16 @@
 
         // 3. 邏輯判斷
         if (now < unlockDate) {
-            // 如果還沒到 7/13
-            alert("現在還太早囉！先把這份驚喜留到分科考完那天再打開吧。加油！");
+            // 如果還沒到考完時間
+            alert("現在還太早囉！先把這份驚喜留到分科考完那天再打開吧。專心考試，加油！");
         } else {
-            // 如果已經考完了
+            // 時間到了，檢查密碼
             if (inputPassword === correctPassword) {
-                // 密碼正確
-                authSection.style.display = "none"; // 隱藏輸入框
-                statusText.style.display = "none";   // 隱藏原本的加油文字
-                title.innerHTML = "給你的悄悄話";      // 更改標題
-                messageDiv.style.display = "block";  // 顯示隱藏的心語內容
+                authSection.style.display = "none"; 
+                statusText.style.display = "none";   
+                title.innerHTML = "給你的真心話";      
+                messageDiv.style.display = "block";  
             } else {
-                // 密碼錯誤
                 alert("密碼不對喔，再試試看？");
             }
         }
