@@ -5,49 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>畢業快樂！</title>
     <style>
-        /* CSS：美化網頁介面 */
+        /* 莫蘭迪灰藍色系配色 */
         body {
             font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            /* 使用溫暖平和的漸層色 */
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
-            color: #333;
+            background-color: #93a2ad; /* 莫蘭迪藍灰色 */
+            color: #4a4e52;
             text-align: center;
         }
+
         .container {
-            background: white;
+            background: #fdfdfd;
             padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
             max-width: 85%;
-            width: 400px;
+            width: 420px;
+            transition: all 0.5s ease;
         }
+
         h1 {
-            color: #4a90e2;
-            margin-bottom: 1rem;
+            color: #6d8299; /* 莫蘭迪深藍 */
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
+
         p {
-            line-height: 1.6;
-            color: #666;
+            line-height: 1.8;
+            color: #70757a;
+            font-size: 0.95rem;
         }
+
+        .hint {
+            font-size: 0.85rem;
+            color: #949ba2;
+            background: #f0f2f5;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
         input {
             padding: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #ced4da;
             border-radius: 8px;
-            margin-top: 20px;
+            margin-top: 10px;
             width: 100%;
-            box-sizing: border-box; /* 確保寬度包含 padding */
+            box-sizing: border-box;
             text-align: center;
             font-size: 16px;
+            background-color: #f8f9fa;
         }
+
         button {
             padding: 12px 24px;
-            background-color: #5d9cec;
+            background-color: #8da4b4; /* 莫蘭迪綠藍 */
             color: white;
             border: none;
             border-radius: 8px;
@@ -55,78 +72,100 @@
             cursor: pointer;
             width: 100%;
             font-size: 16px;
-            transition: background-color 0.3s;
+            transition: 0.3s;
         }
+
         button:hover {
-            background-color: #4a89dc;
+            background-color: #768d9f;
         }
-        /* 隱藏的心語區域 */
+
+        /* 隱藏內容的樣式 */
         #hidden-message {
-            display: none; 
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px dashed #ddd;
-            text-align: left; /* 心語用左對齊比較好閱讀 */
+            display: none;
+            text-align: left;
+            margin-top: 20px;
+            animation: fadeIn 1s ease;
         }
-        .heart-icon {
-            color: #e74c3c;
-            font-size: 24px;
-            margin-bottom: 10px;
+
+        .ps-text {
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1 id="title">分科加油！</h1>
-    <p id="status-text">這是一個為你準備的數位時光膠囊。<br>現在請先專心應考，祝福一直都在。</p>
+<div class="container" id="main-box">
+    <div id="auth-ui">
+        <h1 id="title">祝你分科順利！</h1>
+        <p id="desc">這是一份為你準備的驚喜，<br>目前還被時光鎖定著。</p>
+        
+        <div class="hint">
+            💡 解鎖謎題：<br>
+            這是一個四位數。前兩位是你的畢業月份，<br>
+            後兩位是七月的最後一天。<br>
+            <b>(解鎖日期：2026/07/12 17:30 以後)</b>
+        </div>
 
-    <!-- 密碼輸入區域 -->
-    <div id="auth-section">
-        <input type="password" id="password" placeholder="請輸入解鎖密碼">
-        <br>
+        <input type="password" id="password" placeholder="請輸入密碼">
         <button onclick="checkStatus()">解鎖祝福</button>
     </div>
 
-    <!-- 隱藏的心語區域 -->
+    <!-- 成功後的內容 -->
     <div id="hidden-message">
-        <div style="text-align: center;"><span class="heart-icon">❤</span></div>
-        <p>辛苦了！在你看到這段文字的時候，分科測驗應該已經順利結束了吧。</p>
-        <p>雖然我們在學校不常聊天，但我一直很佩服你為了目標而努力的樣子。這份禮物是在畢業那天送出的，而這段話是想在今天正式祝賀你完成了這場挑戰。</p>
-        <p>不論結果如何，我都相信你的優秀會帶你去理想的地方。祝你在大學開啟非常精彩的新篇章！加油！</p>
+        <h2 style="color:#6d8299; text-align:center;">恭喜ผ(•̀_•́ผ)</h2>
+        <p>能看到這些話，你也蠻有毅力的w</p>
+        <p>雖然我們不熟，你對我的印象可能模糊，也可能不太好，但我很高興這兩年遇見了你。</p>
+        <p>一開始對你的印象是辯論社社長、好像喜歡貓(?、神秘的學霸、作文高手，你認真的樣子佔大部分的記憶。</p>
+        <p>到了高三感覺發現了不太一樣的一面，好像變呆呆的，有點可愛。</p>
+        <p>真正注意到你的時間點大概是學測前吧。發生了一件小事，就漸漸地想觀察你了，你也許不太記得發生了什麼，但...痾，我也不知道該說什麼qq</p>
+        <p>反正就是——<br>祝你考上理想的大學，未來學業順利，最重要的是要天天開心~</p>
+        
+        <div class="ps-text">
+            * 希望這個連結你不要外傳，但感覺不太實際(要傳就傳吧，反正應該也看不出來是誰吧 ;D)<br>
+            * 知道這件事的人應該只有6個人，其中有4個都叫我放棄，但說實話我覺得你連我是誰可能都要思考一段時間xd<br>
+            * 這些其實是我的日記改寫，希望你不要太有壓力，我想未來應該不會再見面了，所以想表達對你的感謝和告訴你有人會默默地幫你加油~
+        </div>
     </div>
 </div>
 
 <script>
     function checkStatus() {
-        // 1. 設定解鎖日期 (2026年7月13日 18:00)
-        // JS 月份從 0 開始，所以 7 月要填 6
-        const unlockDate = new Date(2026, 6, 13, 18, 0, 0); 
-        const now = new Date(); 
-        
-        // 2. 密碼已設定為 0731
-        const correctPassword = "0731"; 
-        
+        // 解鎖時間：2026/07/12 17:30:00
+        // JS 月份從 0 開始，所以 7 月是 6
+        const unlockDate = new Date(2026, 6, 12, 17, 30, 0);
+        const now = new Date();
+        const correctPassword = "0731";
         const inputPassword = document.getElementById('password').value;
-        const messageDiv = document.getElementById('hidden-message');
-        const authSection = document.getElementById('auth-section');
-        const statusText = document.getElementById('status-text');
-        const title = document.getElementById('title');
 
-        // 3. 邏輯判斷
-        if (now < unlockDate) {
-            // 如果還沒到考完時間
-            alert("現在還太早囉！先把這份驚喜留到分科考完那天再打開吧。專心考試，加油！");
-        } else {
-            // 時間到了，檢查密碼
-            if (inputPassword === correctPassword) {
-                authSection.style.display = "none"; 
-                statusText.style.display = "none";   
-                title.innerHTML = "給你的真心話";      
-                messageDiv.style.display = "block";  
-            } else {
-                alert("密碼不對喔，再試試看？");
-            }
+        const isTimeUp = now >= unlockDate;
+        const isPasswordCorrect = inputPassword === correctPassword;
+
+        if (!isTimeUp && !isPasswordCorrect) {
+            // 1. 時間未到 + 輸入錯誤
+            alert("密碼錯誤而且時機未到喔：D");
+        } 
+        else if (!isTimeUp && isPasswordCorrect) {
+            // 2. 時間未到 + 輸入正確
+            alert("不愧是你，猜得好準，但天機目前還不能洩漏 );");
+        } 
+        else if (isTimeUp && !isPasswordCorrect) {
+            // 3. 時間到 + 輸入錯誤
+            alert("加油加油~ >.<");
+        } 
+        else if (isTimeUp && isPasswordCorrect) {
+            // 4. 時間到 + 輸入正確
+            document.getElementById('auth-ui').style.display = 'none';
+            document.getElementById('hidden-message').style.display = 'block';
+            document.getElementById('main-box').style.width = '500px'; // 展開一點寬度方便閱讀
         }
     }
 </script>
