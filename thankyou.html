@@ -5,98 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>for LPC</title>
     <style>
-        body {
-            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #93a2ad; 
-            color: #4a4e52;
-            text-align: center;
-        }
-
-        .container {
-            background: #fdfdfd;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            max-width: 85%;
-            width: 420px;
-            transition: all 0.5s ease;
-        }
-
-        h1 {
-            color: #6d8299; 
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        p {
-            line-height: 1.8;
-            color: #70757a;
-            font-size: 0.95rem;
-        }
-
-        .hint {
-            font-size: 0.85rem;
-            color: #949ba2;
-            background: #f0f2f5;
-            padding: 10px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        input {
-            padding: 12px;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            margin-top: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            text-align: center;
-            font-size: 16px;
-            background-color: #f8f9fa;
-        }
-
-        button {
-            padding: 12px 24px;
-            background-color: #8da4b4; 
-            color: white;
-            border: none;
-            border-radius: 8px;
-            margin-top: 15px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background-color: #768d9f;
-        }
-
-        #hidden-message {
-            display: none;
-            text-align: left;
-            margin-top: 20px;
-            animation: fadeIn 1s ease;
-        }
-
-        .ps-text {
-            font-size: 0.8rem;
-            color: #a0a0a0;
-            margin-top: 15px;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background-color: #93a2ad; color: #4a4e52; text-align: center; }
+        .container { background: #fdfdfd; padding: 2.5rem; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); max-width: 85%; width: 420px; transition: all 0.5s ease; }
+        h1 { color: #6d8299; font-size: 1.5rem; margin-bottom: 1.5rem; }
+        p { line-height: 1.8; color: #70757a; font-size: 0.95rem; }
+        .hint { font-size: 0.85rem; color: #949ba2; background: #f0f2f5; padding: 10px; border-radius: 8px; margin: 15px 0; }
+        input { padding: 12px; border: 1px solid #ced4da; border-radius: 8px; margin-top: 10px; width: 100%; box-sizing: border-box; text-align: center; font-size: 16px; background-color: #f8f9fa; }
+        button { padding: 12px 24px; background-color: #8da4b4; color: white; border: none; border-radius: 8px; margin-top: 15px; cursor: pointer; width: 100%; font-size: 16px; transition: 0.3s; }
+        button:hover { background-color: #768d9f; }
+        #hidden-message, #birthday-content { display: none; text-align: left; margin-top: 20px; animation: fadeIn 1s ease; }
+        .ps-text { font-size: 0.8rem; color: #a0a0a0; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -104,70 +23,61 @@
 <div class="container" id="main-box">
     <div id="auth-ui">
         <h1 id="title">祝你分科順利！</h1>
-        
         <div class="hint">
             考的都會，猜的都對(?<br>
             小提示：<br>
             2-15 4-13<br>
             <b>(開啟日期：2026/07/12 17:30 以後)</b>
         </div>
-
         <input type="password" id="password" placeholder="請輸入密碼">
         <button onclick="checkStatus()">Click</button>
     </div>
 
     <div id="hidden-message">
         <h2 style="color:#6d8299; text-align:center;">恭喜 ผ(•̀_•́ผ)</h2>
-        
-        <div class="hint">
-            能看到這些話，你也蠻有毅力的w<br>
-            <del>應該不是Ctrl+u直接看得吧qwq我打的很認真餒</del>
-        </div>
-        
+        <div class="hint">能看到這些話，你也蠻有毅力的w</div>
         <p>雖然我們不熟，你對我的印象可能模糊，也可能不太好，但我很高興這兩年遇見了你。</p>
         <p>一開始對你的印象是辯論社社長、好像喜歡貓(?、神秘的學霸、作文高手，你認真的樣子佔大部分的記憶。</p>
         <p>到了高三感覺發現了不太一樣的一面，好像變呆呆的，有點可愛。</p>
-        <p>真正注意到你的時間點大概是學測前吧。發生了一件小事，就漸漸地想觀察你了，你也許不太記得發生了什麼，但...痾，我也不知道該說什麼qq</p>
+        <p>真正注意到你的時間點大概是學測前吧。發生了一件小事，就漸漸地想觀察你了...</p>
         <p>反正就是 ——<br><b>祝你考上理想的大學，未來學業順利，最重要的是要天天開心~</b></p>
-        
         <div class="ps-text">
             一些碎碎念<br>
-            * 希望這個連結你不要外傳，但感覺不太實際<br>
-            (要傳就傳吧，反正應該也看不出來是誰吧 ;D)<br>
-            * 知道這件事的人應該只有6個人，其中有4個都叫我放棄((但說實話我覺得你連我是誰可能都要思考一段時間xd<br>
-            * 這些其實是我的日記改寫，希望你不要太有壓力，我想未來應該不會再見面了，所以想表達對你的感謝和告訴你有人會默默地幫你加油~
+            *希望這個連結你不要外傳，但感覺不太實際(要傳就傳吧，反正應改也看不出來是誰吧;D)<br>
+            *知道這件事的人應該只有6個人，其中有4個都叫我放棄，但說實話我覺得你連我是誰可能都要思考一段時間xd<br>
+            *這些其實是我的日記改寫，希望你不要太有壓力，我想未來應該不會再見面了，所以想表達對你的感謝和告訴你有人會默默地幫你加油~
         </div>
+    </div>
+
+    <div id="birthday-content">
+        <h2 style="color:#e67e22; text-align:center;">🎂 生日快樂！</h2>
     </div>
 </div>
 
 <script>
     document.oncontextmenu = function() { return false; };
     document.onkeydown = function(e) {
-        if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 73)) {
-            return false;
-        }
-        if (e.keyCode === 123) {
-            return false;
-        }
+        if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 73)) return false;
+        if (e.keyCode === 123) return false;
     };
     
     function checkStatus() {
-        const unlockDate = new Date(2026, 3, 1, 17, 30, 0); // 7/12
-        const birthdayDate = new Date(2026, 4, 1, 0, 0, 0); // 7/31 生日當天
-        const expiryDate = new Date(2026, 8, 30, 23, 59, 59); // 延長到 9 月底失效
+        const unlockDate = new Date(2026, 3, 12, 17, 30, 0); // 7/12
+        const birthdayDate = new Date(2026, 6, 31, 0, 0, 0); // 7/31
+        const expiryDate = new Date(2026, 8, 31, 23, 59, 59); 
         
         const now = new Date();
         const correctPassword = "0731";
         const inputPassword = document.getElementById('password').value;
 
         if (now > expiryDate) {
-            alert("願你的大學生活一切順利！");
+            alert("祝你的大學生活一切順利！");
             return;
         }
 
         if (now < unlockDate) {
             if (inputPassword === correctPassword) {
-                alert("不愧是你，猜得好準，但天機目前還不能洩漏");
+                alert("不愧是你，猜得好準，但天機目前還不能洩漏 );");
             } else {
                 alert("密碼錯誤而且時機未到喔：D");
             }
@@ -175,15 +85,15 @@
         else {
             if (inputPassword === correctPassword) {
                 document.getElementById('auth-ui').style.display = 'none';
-                document.getElementById('hidden-message').style.display = 'block';
-                document.getElementById('main-box').style.width = '500px';
-
-                if (now === birthdayDate) {
-                    document.getElementById('birthday-wish').style.display = 'block';
-                    alert("生日快樂");
+                
+                if (now >= birthdayDate) {
+                    document.getElementById('birthday-content').style.display = 'block';
+                } else {
+                    document.getElementById('hidden-message').style.display = 'block';
+                    document.getElementById('main-box').style.width = '500px';
                 }
             } else {
-                alert("加油加油~ >.<");
+                alert("加油加油~快猜到了 >.<");
             }
         }
     }
