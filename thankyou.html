@@ -152,27 +152,38 @@
     };
     
     function checkStatus() {
-        const unlockDate = new Date(2026, 4, 1, 00, 00, 0);
+        const unlockDate = new Date(2026, 3, 1, 17, 30, 0); // 7/12
+        const birthdayDate = new Date(2026, 6, 31, 0, 0, 0); // 7/31 生日當天
+        const expiryDate = new Date(2026, 8, 30, 23, 59, 59); // 延長到 9 月底失效
+        
         const now = new Date();
         const correctPassword = "0731";
         const inputPassword = document.getElementById('password').value;
 
-        const isTimeUp = now >= unlockDate;
-        const isPasswordCorrect = inputPassword === correctPassword;
+        if (now > expiryDate) {
+            alert("願你的大學生活一切順利！");
+            return;
+        }
 
-        if (!isTimeUp && !isPasswordCorrect) {
-            alert("密碼錯誤而且時機未到喔：D");
+        if (now < unlockDate) {
+            if (inputPassword === correctPassword) {
+                alert("不愧是你，猜得好準，但天機目前還不能洩漏 );");
+            } else {
+                alert("密碼錯誤而且時機未到喔：D");
+            }
         } 
-        else if (!isTimeUp && isPasswordCorrect) {
-            alert("不愧是你，猜得好準，但天機目前還不能洩漏 );");
-        } 
-        else if (isTimeUp && !isPasswordCorrect) {
-            alert("加油加油~ >.<");
-        } 
-        else if (isTimeUp && isPasswordCorrect) {
-            document.getElementById('auth-ui').style.display = 'none';
-            document.getElementById('hidden-message').style.display = 'block';
-            document.getElementById('main-box').style.width = '500px';
+        else {
+            if (inputPassword === correctPassword) {
+                document.getElementById('auth-ui').style.display = 'none';
+                document.getElementById('hidden-message').style.display = 'block';
+                document.getElementById('main-box').style.width = '500px';
+
+                if (now === birthdayDate) {
+                    document.getElementById('birthday-wish').style.display = 'block';
+                }
+            } else {
+                alert("加油加油~ >.<");
+            }
         }
     }
 </script>
