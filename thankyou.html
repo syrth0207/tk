@@ -167,7 +167,7 @@
 
         if (now < unlockDate) {
             if (inputPassword === correctPassword) {
-                alert("不愧是你，猜得好準，但天機目前還不能洩漏 );");
+                alert("不愧是你，猜得好準，但天機目前還不能洩漏");
             } else {
                 alert("密碼錯誤而且時機未到喔：D");
             }
@@ -180,6 +180,7 @@
 
                 if (now === birthdayDate) {
                     document.getElementById('birthday-wish').style.display = 'block';
+                    alert("生日快樂");
                 }
             } else {
                 alert("加油加油~ >.<");
