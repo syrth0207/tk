@@ -140,6 +140,16 @@
 </div>
 
 <script>
+    document.oncontextmenu = function() { return false; };
+    document.onkeydown = function(e) {
+        if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 73)) {
+            return false;
+        }
+        if (e.keyCode === 123) {
+            return false;
+        }
+    };
+    
     function checkStatus() {
         const unlockDate = new Date(2026, 4, 1, 00, 00, 0);
         const now = new Date();
